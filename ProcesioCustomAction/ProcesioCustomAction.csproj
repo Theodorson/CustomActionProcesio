@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+	  <TargetsForTfmSpecificBuildOutput>
+
+		  $(TargetsForTfmSpecificBuildOutput);IncludeDepsInPackage
+
+	  </TargetsForTfmSpecificBuildOutput>
+
+	  <AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+		  $(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb;.json
+
+	  </AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+	  <Version>1.3.6.5</Version>
+
+	  <Product>CustomTrim</Product>
+
+	  <Company>procesioApp</Company>
+
+	  <Authors>Theodorson</Authors>
+
+	  <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ringhel.Procesio.Action.Core" Version="1.10.0" />
+  </ItemGroup>
+
+	<Target Name="IncludeDepsInPackage">
+
+		<ItemGroup>
+
+			<BuildOutputInPackage Include="$(OutDir)*" />
+
+		</ItemGroup>
+
+	</Target>	
+	
+</Project>
